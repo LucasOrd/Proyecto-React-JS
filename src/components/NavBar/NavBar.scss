@@ -1,0 +1,14 @@
+.header {
+  background-color: lightblue;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-column: auto;
+}
+
+.li {
+  color: black;
+  list-style: none;
+}
