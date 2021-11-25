@@ -4,13 +4,15 @@ import Footer from "./components/Footer/Footer";
 import HomeView from "./components/HomeView/HomeView";
 import Container from "./components/Container/Container";
 import ItemCount from "./components/ItemCount/ItemCount";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Container>
-        <HomeView saludo="HOla chau" texto="Lorem" />
+        <HomeView saludo="Contenido Home View" texto="texto" />
+        <ItemListContainer />
       </Container>
       <ItemCount />
       <Footer />

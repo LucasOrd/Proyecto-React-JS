@@ -1,16 +1,18 @@
 import "./NavBar.scss";
 
+import { CartWidget } from "../CartWidget/CartWidget";
+
 const NavBar = () => {
   return (
     <header className="nav">
       <h1>Venta de Termos</h1>
       <nav>
         <ul>
-          <li className="li">enlace 1</li>
-          <li className="li">enlace 2</li>
-          <li className="li">enlace 3</li>
-          <li className="li">enlace 4</li>
+          <li className="li">Nuestros Productos</li>
+          <li className="li">Sobre nosotros</li>
+          <li className="li">Contacto</li>
         </ul>
+        <CartWidget />
       </nav>
     </header>
   );

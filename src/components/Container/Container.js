@@ -2,7 +2,7 @@ import React from "react";
 const Container = ({ children }) => {
   return (
     <section>
-      <h2>asas</h2>
+      <h2>Prueba de seccion</h2>
       {children}
     </section>
   );
