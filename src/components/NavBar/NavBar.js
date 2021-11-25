@@ -2,7 +2,8 @@ import "./NavBar.scss";
 
 const NavBar = () => {
   return (
-    <header className="header">
+    <header className="nav">
+      <h1>Venta de Termos</h1>
       <nav>
         <ul>
           <li className="li">enlace 1</li>

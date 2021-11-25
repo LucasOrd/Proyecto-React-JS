@@ -1,14 +1,22 @@
-.header {
-  background-color: lightblue;
-
+.nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  grid-column: auto;
-}
+  padding: 10px;
+  background-color: aquamarine;
+  color: white;
 
-.li {
-  color: black;
-  list-style: none;
+  h1 {
+    text-transform: uppercase;
+  }
+
+  nav {
+    width: 40%;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+  }
 }
