@@ -14,7 +14,7 @@ function App() {
         <HomeView saludo="Contenido Home View" texto="texto Home view" />
         <ItemListContainer />
       </Container>
-      <ItemCount />
+      <ItemCount stock={50} initial={0} />
       <Footer />
     </div>
   );
