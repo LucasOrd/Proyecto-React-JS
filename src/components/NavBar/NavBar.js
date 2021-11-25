@@ -12,8 +12,8 @@ const NavBar = () => {
           <li className="li">Sobre nosotros</li>
           <li className="li">Contacto</li>
         </ul>
-        <CartWidget />
       </nav>
+      <CartWidget />
     </header>
   );
 };

@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Container>
-        <HomeView saludo="Contenido Home View" texto="texto" />
+        <HomeView saludo="Contenido Home View" texto="texto Home view" />
         <ItemListContainer />
       </Container>
       <ItemCount />
