@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const ItemCount = ({ stock = 10, initial = 0 }) => {
-  const [cantidad, setCantidad] = useState(0);
+  const [cantidad, setCantidad] = useState(initial);
 
   const handleRestar = () => {
     if (cantidad > initial) {
