@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
-
+import { pedirDatos } from "../Datos/Datos";
 import { ItemList } from "../ItemList/ItemList";
 
 export const ItemListContainer = () => {
