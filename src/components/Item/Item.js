@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Item = ({ props }) => {
+export const Item = ({ props }) => {
   return (
     <div className="col-3 m-1">
       <img src={props.img} />
@@ -14,5 +14,3 @@ const Item = ({ props }) => {
     </div>
   );
 };
-
-export default Item;

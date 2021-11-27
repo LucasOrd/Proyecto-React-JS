@@ -1,45 +1,35 @@
-import React from "react";
-import "./ItemListContainer.scss";
-import "../ItemList/ItemList";
-import { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router";
 
-const DB_PRODUCTS = [
-  {
-    id: 1,
-    precio: 100,
-  },
-  {
-    id: 2,
-    precio: 200,
-  },
-];
+import { ItemList } from "../ItemList/ItemList";
 
-function crearPromesa() {
-  return new Promise((resolve, reject) => {
-    setTimeout(function () {
-      resolve(DB_PRODUCTS);
-    }, 300);
-  });
-}
+export const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-function ItemListContainer() {
-  const [items, setItems] = useState(null);
+  const { categoryId } = useParams();
 
-  let requestDatos = crearPromesa();
   useEffect(() => {
-    requestDatos
-      .then(function (items_api) {
-        setItems(crearPromesa);
+    setLoading(true);
+    pedirDatos()
+      .then((resp) => {
+        if (categoryId) {
+          setItems(resp.filter((el) => el.category === categoryId));
+        } else {
+          setItems(resp);
+        }
       })
-      .catch(function (error_msg) {
-        consol.log(error_msg);
+      .catch((err) => {
+        console.log(err);
       })
-      .finally(function () {
-        console.log("Finalizo");
+      .finally(() => {
+        setLoading(false);
       });
-  }, []);
+  }, [categoryId]);
 
-  return <div>{items ? <ItemList items={items} /> : <h3>Cargando</h3>}</div>;
-}
+  return (
+    <div>{loading ? <h2>Cargando...</h2> : <ItemList items={items} />}</div>
+  );
+};
 
 export default ItemListContainer;

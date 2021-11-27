@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ItemCount = ({ stock = 10, initial = 0 }) => {
+export const ItemCount = ({ stock = 10, initial = 0 }) => {
   const [cantidad, setCantidad] = useState(initial);
 
   const handleRestar = () => {
