@@ -5,19 +5,25 @@ import HomeView from "./components/HomeView/HomeView";
 import Container from "./components/Container/Container";
 import ItemCount from "./components/ItemCount/ItemCount";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <NavBar />
-      <Container>
-        <HomeView saludo="Contenido Home View" texto="texto Home view" />
-        <ItemListContainer />
-      </Container>
-      <ItemCount stock={50} initial={0} />
+      <Routes>
+        <Route path="/" element={true} component={<ItemListContainer />} />
+        <Route path="/detail" element={<ItemDetailContainer />} />
+      </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+/* <Container>
+        <HomeView saludo="Contenido Home View" texto="texto Home view" />
+        <ItemListContainer />
+      </Container>
+      <ItemCount stock={50} initial={0} /> */
