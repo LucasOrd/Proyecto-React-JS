@@ -1,4 +1,3 @@
-import ItemCount from "../ItemCount/ItemCount";
 import React from "react";
 import { Item } from "../Item/Item";
 
