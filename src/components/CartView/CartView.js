@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BsFillTrashFill } from "react-icons/bs";
-import { CartContext } from "../CartContext/CartContext";
+import { CartContext } from "..CartContext/CartContext/CartContext";
 
 export const CartView = () => {
   const { cart, vaciarCarrito, totalCompra, removerDelCarrito } =

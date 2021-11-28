@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { CartContext } from "../CartContext/CartContext";
-
+import { CartContext } from "../../context/CartContext";
+import { useCounter } from "../../hooks/useCounter";
 import { ItemCount } from "../ItemCount/ItemCount";
 
 export const ItemDetail = ({ item }) => {
   const { agregarAlCarrito, isInCart } = useContext(CartContext);
 
-  const { counter, increment, decrement } = ItemCount(0, item.stock, 0);
+  const { counter, increment, decrement } = useCounter(0, item.stock, 0);
 
   const navigate = useNavigate();
 

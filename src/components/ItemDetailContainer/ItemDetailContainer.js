@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { ItemDetail } from "../ItemDetail/ItemDetail.js";
-import { pedirItem } from "../Datos/Datos";
+import { pedirItem } from "../../helpers/pedirDatos";
+import { ItemDetail } from "../ItemDetail/ItemDetail";
 
 export const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
@@ -21,5 +21,3 @@ export const ItemDetailContainer = () => {
 
   return <div>{loading ? <h2>Cargando</h2> : <ItemDetail item={item} />}</div>;
 };
-
-export default ItemDetailContainer;

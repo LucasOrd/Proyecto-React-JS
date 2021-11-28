@@ -1,24 +1,33 @@
-import "./NavBar.scss";
 import { Link } from "react-router-dom";
-
 import { CartWidget } from "../CartWidget/CartWidget";
+import "./NavBar.scss";
 
-const NavBar = () => {
+export const NavBar = () => {
   return (
-    <header className="nav">
-      <h1>Venta de Termos</h1>
+    <header className="navbar px-5">
+      <Link to="/">
+        <h1>Coder RJ</h1>
+      </Link>
+
       <nav>
         <ul>
-          <li className="li">
-            <Link to="/detail">Nuestros Productos</Link>
+          <li>
+            <Link to="/category/zapatillas">Zapatillas</Link>
           </li>
-          <li className="li">Sobre nosotros</li>
-          <li className="li">Contacto</li>
+          <li>
+            <Link to="/category/buzos">Buzos</Link>
+          </li>
+          <li>
+            <Link to="/category/remeras">Remeras</Link>
+          </li>
         </ul>
       </nav>
-      <CartWidget />
+
+      <Link to="/cart">
+        <CartWidget />
+      </Link>
     </header>
   );
 };
 
-export default NavBar;
+// export default NavBar
