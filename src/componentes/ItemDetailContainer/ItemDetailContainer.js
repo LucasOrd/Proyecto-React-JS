@@ -2,7 +2,7 @@ import { getDoc, doc, collection } from "firebase/firestore/lite";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
-import React from "react";
+import { db } from "../firebase/config";
 
 export const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
@@ -26,7 +26,7 @@ export const ItemDetailContainer = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [ItemId]);
+  }, [itemId]);
 
   return <div>{loading ? <h2>Cargando</h2> : <ItemDetail item={item} />}</div>;
 };

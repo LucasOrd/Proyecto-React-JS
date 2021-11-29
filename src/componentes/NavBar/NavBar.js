@@ -14,7 +14,13 @@ export const NavBar = () => {
           <li>
             <Link to="/">Productos</Link>
           </li>
-          <li>Sobre Nosotros</li>
+          <li>Categorias</li>
+          <li>
+            <Link to="/category/Acero">Acero</Link>
+          </li>
+          <li>
+            <Link to="/category/Vidrio">Vidrio</Link>
+          </li>
         </ul>
       </nav>
       <CartWidget />

@@ -1,12 +1,13 @@
 import { FaShoppingCart } from "react-icons/fa";
 import "./CartWidget.scss";
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../CartContext/CartContext";
 
 export const CartWidget = () => {
-  const { productos } = useCartContext();
+  const { productos } = useContext(CartContext);
   return (
     <div className="cart-widget">
-      <p>{productos.length}</p>
+      <p>{productos}</p>
       <FaShoppingCart />
     </div>
   );
