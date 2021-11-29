@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { pedirDatos } from "../Datos/Datos";
 import { ItemList } from "../ItemList/ItemList";
+import { db } from "../db/db";
+import { collection, getDocs, query, where } from "firebase/firestore/lite";
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -11,19 +12,24 @@ export const ItemListContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    pedirDatos()
+
+    const productosRef = collection(db, "productos");
+
+    const q = categoryId
+      ? query(productosRef, where("categoty", "==", categoryId))
+      : productosRef;
+
+    getDocs(q)
       .then((resp) => {
-        if (categoryId) {
-          setItems(resp.filter((el) => el.category === categoryId));
-        } else {
-          setItems(resp);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
+        const productos = resp.docs.map((elemento) => {
+          return {
+            id: elemento.id,
+            ...elemento.data(),
+          };
+        });
       })
       .finally(() => {
-        setLoading(false);
+        setLoading(falase);
       });
   }, [categoryId]);
 

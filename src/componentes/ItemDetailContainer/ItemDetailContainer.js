@@ -1,3 +1,4 @@
+import { getDoc, doc, collection } from "firebase/firestore/lite";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { pedirItem } from "../Datos/Datos";
@@ -12,8 +13,16 @@ export const ItemDetailContainer = () => {
   useEffect(() => {
     setLoading(true);
 
-    pedirItem(Number(itemId))
-      .then((resp) => setItem(resp))
+    const productosRef = collection(db, "productos");
+    const docRef = doc(productosRef, itemId);
+
+    getDoc(docRef)
+      .then((doc) => {
+        setItem({
+          id: doc.id,
+          ...doc.data(),
+        });
+      })
       .finally(() => {
         setLoading(false);
       });
