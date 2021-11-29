@@ -1,8 +1,8 @@
 import { getDoc, doc, collection } from "firebase/firestore/lite";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { pedirItem } from "../Datos/Datos";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
+import React from "react";
 
 export const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);

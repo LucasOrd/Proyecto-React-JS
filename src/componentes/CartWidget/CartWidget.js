@@ -1,5 +1,6 @@
 import { FaShoppingCart } from "react-icons/fa";
 import "./CartWidget.scss";
+import React from "react";
 
 export const CartWidget = () => {
   const { productos } = useCartContext();
