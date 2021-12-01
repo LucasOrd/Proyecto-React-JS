@@ -4,11 +4,11 @@ import React, { useContext } from "react";
 import { CartContext } from "../CartContext/CartContext";
 
 export const CartWidget = () => {
-  const { productos } = useContext(CartContext);
+  const { totalCantidad } = useContext(CartContext);
   return (
     <div className="cart-widget">
-      <p>{productos}</p>
       <FaShoppingCart />
+      <span>{totalCantidad()}</span>
     </div>
   );
 };
