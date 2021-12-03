@@ -8,13 +8,15 @@ export const Checkout = () => {
 
   const { cart, totalCompra } = useContext(CartContext);
 
-  const generarOrden = () => {
+  const [valores, setValores] = useState({
+    nombre: "",
+    email: "",
+    tel: "",
+  });
+
+  const generarOrden = (buyer) => {
     const order = {
-      buyer: {
-        nombre: "lucas",
-        email: "lucas@gmail.com",
-        tel: 1234,
-      },
+      buyer: buyer,
       items: cart,
       total: totalCompra(),
     };
@@ -26,6 +28,18 @@ export const Checkout = () => {
     });
   };
 
+  const handleSubmit = (elemento) => {
+    elemento.preventDefault();
+    generarOrden(valores);
+  };
+
+  const handleChange = (elemento) => {
+    setValores({
+      ...valores,
+      [elemento.target.name]: elemento.target.value,
+    });
+  };
+
   return (
     <div className="container my-5">
       {ordderId ? (
@@ -33,7 +47,36 @@ export const Checkout = () => {
       ) : (
         <>
           <h3>Resumen de compra</h3>
-          <button onClick={generarOrden}>Finalizar</button>
+
+          <form onSubmit={handleSubmit}>
+            <input
+              className="form-control my-2"
+              value={valores.nombre}
+              onChange={handleChange}
+              placeholder="Nombre"
+              type="text"
+              name="nombre"
+            />
+            <input
+              value={valores.email}
+              onChange={handleChange}
+              className="form-control my-2"
+              placeholder="Email"
+              type="email"
+              name="email"
+            />
+            <input
+              value={valores.tel}
+              onChange={handleChange}
+              className="form-control my-2"
+              placeholder="Telefono"
+              type="tel"
+              name="tel"
+            />
+            <button type="submit" className="btn btn-primary">
+              Finalizar
+            </button>
+          </form>
         </>
       )}
     </div>
